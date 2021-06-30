@@ -19,8 +19,6 @@ interface Post {
 export default function AllPosts() {
     const [allPostsData, setAllPosts] = useState([])
 
-    console.log(allPostsData)
-
     useEffect(() => {
         sanityClient
             .fetch(
