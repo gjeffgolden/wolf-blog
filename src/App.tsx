@@ -7,16 +7,16 @@ import OnePost from './components/OnePost'
 import './App.css';
 
 //https://www.sanity.io/guides/build-your-first-blog-using-react
-//Stopped at "Building React Components"
+
 
 function App() {
 
   return (
     <BrowserRouter>
-      <main>
+      <section>
         <Route component={AllPosts} path="/" exact />
         <Route component={OnePost} path="/:slug" />
-      </main>
+      </section>
     </BrowserRouter>
   );
 }
