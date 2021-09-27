@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import sanityClient from '../client';
 import { Header } from '../components/Header';
+import FeaturedPost from '../components/FeaturedPost';
 
-interface Post {
+export interface Post {
     mainImage: {
         asset: {
             _id: string,
@@ -43,17 +44,17 @@ export default function AllPosts() {
             .catch(console.error)
     }, [])
 
-    console.log(allPostsData)
     const sortedPosts = [...allPostsData].sort((a: Post, b: Post) =>
         a._createdAt < b._createdAt ? 1 : -1,
     );
 
-    console.log(sortedPosts)
+    const featuredPost = sortedPosts[0];
 
     return (
         <div className="bg-gray-100 min-h-screen p-12">
             <div className="container mx-auto">
                 <Header />
+                <FeaturedPost post={featuredPost} />
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {allPostsData &&
                         sortedPosts.map((post: Post, index: number) => (

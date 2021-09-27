@@ -36,7 +36,8 @@ export const Header = () => {
                 open={Boolean(anchorEl)}
                 onClose={() => setAnchorEl(null)}
             >
-                <MenuItem>Hello</MenuItem>
+                <MenuItem>Colorado Wolf News</MenuItem>
+                <MenuItem>Essays</MenuItem>
                 {/* TODO: Change Menu to Popover if necessary and get modal to open
                 on bottom of hamburger icon. Add list items and create routes for pages as necessary.*/}
             </Menu>
