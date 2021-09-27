@@ -15,6 +15,8 @@ interface Post {
         current: string
     },
     title: string
+    _createdAt: string
+    categories?: string[]
 }
 
 export default function AllPosts() {
@@ -25,6 +27,8 @@ export default function AllPosts() {
             .fetch(
                 `*[_type == "post"]{
                     title,
+                    categories,
+                    _createdAt,
                     slug,
                     mainImage{
                         asset->{
@@ -39,14 +43,20 @@ export default function AllPosts() {
             .catch(console.error)
     }, [])
 
+    console.log(allPostsData)
+    const sortedPosts = [...allPostsData].sort((a: Post, b: Post) =>
+        a._createdAt < b._createdAt ? 1 : -1,
+    );
+
+    console.log(sortedPosts)
 
     return (
-        <div className="bg-green-100 min-h-screen p-12">
+        <div className="bg-gray-100 min-h-screen p-12">
             <div className="container mx-auto">
                 <Header />
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {allPostsData &&
-                        allPostsData.map((post: Post, index: number) => (
+                        sortedPosts.map((post: Post, index: number) => (
                             <Link to={"/" + post.slug.current} key={post.slug.current}>
                                 <span 
                                     className="block h-64 relative rounded shadow leading-snug bg-white border-1-8 border-green-400" 
