@@ -1,6 +1,7 @@
-import { BrowserRouter, Route } from 'react-router-dom'
-import AllPosts from './pages/AllPosts'
-import OnePost from './pages/OnePost'
+import { BrowserRouter, Route } from 'react-router-dom';
+import AllPosts from './pages/AllPosts';
+import OnePost from './pages/OnePost';
+import Header from './components/Header';
 
 
 import './App.css';
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Header />
       <div>
         <Route component={AllPosts} path="/" exact />
         <Route component={OnePost} path="/:slug" />

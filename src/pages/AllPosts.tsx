@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import sanityClient from '../client';
-import { Header } from '../components/Header';
+import Header from '../components/Header';
 import FeaturedPost from '../components/FeaturedPost';
 
 export interface Post {
@@ -52,11 +52,8 @@ export default function AllPosts() {
 
     return (
         <div className="bg-gray-100 min-h-screen p-12">
-            <Header />
             <FeaturedPost post={featuredPost} />
             <div className="container mx-auto">
-                {/* <Header />
-                <FeaturedPost post={featuredPost} /> */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {allPostsData &&
                         sortedPosts.map((post: Post, index: number) => (
