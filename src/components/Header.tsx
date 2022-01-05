@@ -16,13 +16,13 @@ const Header = () => {
     }
 
     return(
-        <header className="flex flex-row w-full justify-between items-start">
+        <header className="flex flex-row w-full justify-around items-center bg-gray-100">
             <img 
                 src={WolfHeadLogo} 
                 alt="Drawing of wolf face with gray hair and yellow eyes" 
                 className="h-20 w-20"
             />
-            <section>
+            <section className="mt-8">
                 <h2 className="text-5xl flex justify-center cursive">Wild Margins</h2>
                 <h3 className="text-lg text-gray-600 flex justify-center mb-12">
                     Stories and essays by G. Jeff Golden

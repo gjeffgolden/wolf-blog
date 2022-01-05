@@ -1,6 +1,7 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 import AllPosts from './pages/AllPosts';
 import OnePost from './pages/OnePost';
+import Footer from './components/Footer';
 import Header from './components/Header';
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route component={AllPosts} path="/" exact />
         <Route component={OnePost} path="/:slug" />
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

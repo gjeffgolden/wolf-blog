@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import sanityClient from '../client';
-import Header from '../components/Header';
 import FeaturedPost from '../components/FeaturedPost';
 
 export interface Post {
