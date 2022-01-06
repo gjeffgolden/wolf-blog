@@ -7,8 +7,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import WolfHeadLogo from '../assets/WolfHeadLogo.png';
 
 const Header = () => {
-
-    const [openMenu, setOpenMenu] = useState<boolean>(false);
     const [anchorEl, setAnchorEl] = useState<Element | null>(null);
 
     const handleClick = (event: SyntheticEvent) => {
@@ -33,12 +31,18 @@ const Header = () => {
             </IconButton>
             <Menu 
                 anchorEl={anchorEl}
+                anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left"
+                }}
+                className="mt-12"
                 open={Boolean(anchorEl)}
                 onClose={() => setAnchorEl(null)}
             >
                 <MenuItem>Wolf News & Facts</MenuItem>
                 <MenuItem>Essays</MenuItem>
                 <MenuItem>Short Stories</MenuItem>
+                <MenuItem>About the Author</MenuItem>
             </Menu>
         </header>
     );
