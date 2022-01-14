@@ -66,7 +66,7 @@ export default function OnePost() {
     if (!postData) return <div>Loading...</div>
 
     return (
-        <div className="bg-gray-200 min-h-screen p-12">
+        <div className="bg-gray-100 min-h-screen p-12">
             <div className="container shadow-lg mx-auto bg-green-100 rounded-lg">
                 <div className="relative">
                     <div className="absolute h-full w-full flex items-center justify-center p-8">
@@ -77,7 +77,7 @@ export default function OnePost() {
                             <div className="flex justify-center text-gray-800">
                                 <img
                                     className="w-10 h-10 rounded-full"
-                                    src={String(urlFor(postData.authorImage).width(100).url())}
+                                    src={urlFor(postData.authorImage).width(100).url()?.toString()}
                                     alt="Jeff Golden Author"
                                 />
                                 <h4 className="cursive flex items-center pl-2 text-2xl">
@@ -88,7 +88,7 @@ export default function OnePost() {
                     </div>
                     <img 
                         className="w-full object-cover rounded-t"
-                        src={String(urlFor(postData.mainImage).width(200).url())} 
+                        src={String(urlFor(postData.mainImage).width(2000).url())} 
                         alt="Gray Wolf" 
                         style={{ height: '400px'}}
                     />
