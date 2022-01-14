@@ -1,5 +1,7 @@
 import { SyntheticEvent, useState } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -15,11 +17,13 @@ const Header = () => {
 
     return(
         <header className="flex flex-row w-full justify-around items-center bg-gray-100">
-            <img 
-                src={WolfHeadLogo} 
-                alt="Drawing of wolf face with gray hair and yellow eyes" 
-                className="h-20 w-20"
-            />
+            <Link to="/">
+                <img 
+                    src={WolfHeadLogo} 
+                    alt="Drawing of wolf face with gray hair and yellow eyes" 
+                    className="h-20 w-20"
+                />
+            </Link>
             <section className="mt-8">
                 <h2 className="text-5xl flex justify-center cursive">Wild Margins</h2>
                 <h3 className="text-lg text-gray-600 flex justify-center mb-12">
@@ -39,10 +43,15 @@ const Header = () => {
                 open={Boolean(anchorEl)}
                 onClose={() => setAnchorEl(null)}
             >
+                <Link to="/">
+                    <MenuItem>Home</MenuItem>
+                </Link>
                 <MenuItem>Wolf News & Facts</MenuItem>
                 <MenuItem>Essays</MenuItem>
                 <MenuItem>Short Stories</MenuItem>
-                <MenuItem>About the Author</MenuItem>
+                <Link to="/about-the-author">
+                    <MenuItem>About the Author</MenuItem>
+                </Link>
             </Menu>
         </header>
     );

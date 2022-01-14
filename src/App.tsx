@@ -1,4 +1,5 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AboutMe from './pages/AboutMe';
 import AllPosts from './pages/AllPosts';
 import OnePost from './pages/OnePost';
 import Footer from './components/Footer';
@@ -15,10 +16,11 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div>
-        <Route component={AllPosts} path="/" exact />
-        <Route component={OnePost} path="/:slug" />
-      </div>
+      <Routes>
+        <Route element={<AllPosts />} path="/" />
+        <Route element={<OnePost />} path="/:slug" />
+        <Route element={<AboutMe />} path="/about-the-author" />
+      </Routes>
       <Footer />
     </BrowserRouter>
   );

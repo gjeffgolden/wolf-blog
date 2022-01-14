@@ -28,6 +28,7 @@ export default function AllPosts() {
                 `*[_type == "post"]{
                     title,
                     categories,
+                    fields,
                     _createdAt,
                     slug,
                     mainImage{
@@ -48,6 +49,7 @@ export default function AllPosts() {
     );
 
     const featuredPost = sortedPosts[0];
+    console.log(sortedPosts);
 
     return (
         <div className="bg-gray-100 min-h-screen p-12">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import sanityClient from '../client'
 import BlockContent from '@sanity/block-content-to-react'
@@ -37,13 +37,9 @@ interface PostState {
     title: string;
 }
 
-interface Slug {
-    slug: string;
-}
-
 export default function OnePost() {
     const [postData, setPostData] = useState<PostState | null>(null)
-    const { slug } = useParams<Slug>()
+    const { slug } = useParams()
 
     useEffect(() => {
         sanityClient
