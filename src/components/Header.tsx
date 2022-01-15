@@ -46,9 +46,15 @@ const Header = () => {
         <Link to="/">
           <MenuItem>Home</MenuItem>
         </Link>
-        <MenuItem>Wolf News & Facts</MenuItem>
-        <MenuItem>Essays</MenuItem>
-        <MenuItem>Short Stories</MenuItem>
+        <Link to="/wolf-news">
+          <MenuItem>Wolf News & Facts</MenuItem>
+        </Link>
+        <Link to="/essays">
+          <MenuItem>Essays</MenuItem>
+        </Link>
+        <Link to="/short-stories">
+          <MenuItem>Short Stories</MenuItem>
+        </Link>
         <Link to="/about-the-author">
           <MenuItem>About the Author</MenuItem>
         </Link>
