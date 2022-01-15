@@ -19,10 +19,10 @@ const FeaturedPost: React.FC<FeaturedPostProps> = ({ post }) => {
                             alt="Blog main header" 
                         />
                         <span
-                            className="block relative h-full flex justify-end items-end pr-4 pb-4"
+                            className="block relative h-full flex justify-end items-end pb-4"
                         >
                             <h2
-                                className="text-gray-800 text-lg font-bold px-3 py-4 bg-red-700 text-red-100 bg-opacity-75 rounded"
+                                className="text-gray-800 cursive w-full text-center text-6xl font-bold px-3 py-4 bg-green-800 text-red-100 bg-opacity-75 uppercase"
                             >
                             {post.title}
                             </h2>

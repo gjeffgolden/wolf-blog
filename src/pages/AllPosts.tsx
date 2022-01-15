@@ -69,10 +69,10 @@ export default function AllPosts() {
                                         alt="Blog main header" 
                                     />
                                     <span
-                                        className="block relative h-full flex justify-end items-end pr-4 pb-4"
+                                        className="block relative h-full flex justify-end items-end pb-4"
                                     >
                                         <h2
-                                            className="text-gray-800 text-lg font-bold px-3 py-4 bg-red-700 text-red-100 bg-opacity-75 rounded"
+                                            className="text-gray-800 cursive w-full text-lg text-center font-bold px-3 py-4 bg-blue-800 text-red-100 bg-opacity-75 rounded break-word"
                                         >
                                             {post.title}
                                         </h2>
