@@ -1,3 +1,7 @@
-const Essays = () => <div>Essays</div>
+const Essays = () => {
+  return (
+    <div>Essays</div>
+  )
+}
 
 export default Essays

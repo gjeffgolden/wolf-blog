@@ -16,19 +16,17 @@ export interface Post {
     },
     title: string
     _createdAt: string
-    categories?: string[]
+    categories: { title: string }[]
 }
 
 export default function AllPosts () {
-  const [allPostsData, setAllPosts] = useState([])
+  const [allPostsData, setAllPosts] = useState<Post[]>([])
 
   useEffect(() => {
     sanityClient
       .fetch(
         `*[_type == "post"]{
                     title,
-                    categories,
-                    fields,
                     _createdAt,
                     slug,
                     mainImage{
@@ -36,7 +34,10 @@ export default function AllPosts () {
                             _id,
                             url
                         }
-                    }
+                    },
+                    categories[] -> {
+                      title
+              },
                 }
                 `
       )
@@ -49,6 +50,28 @@ export default function AllPosts () {
   )
 
   const featuredPost = sortedPosts[0]
+
+  const newsPosts = allPostsData.filter(
+    post => post?.categories.map(
+      category => category.title
+    ).includes("News")
+  )
+
+  const essayPosts = allPostsData.filter(
+    post => post?.categories.map(
+      category => category.title
+    ).includes("Essays")
+  )
+
+  const fictionPosts = allPostsData.filter(
+    post => post?.categories.map(
+      category => category.title
+    ).includes("Stories")
+  )
+
+  console.log(essayPosts)
+  console.log(newsPosts)
+  console.log(fictionPosts)
 
   return (
     <div className="bg-gray-100 min-h-screen p-12">
