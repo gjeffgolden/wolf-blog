@@ -1,18 +1,15 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AboutMe from './pages/AboutMe';
-import AllPosts from './pages/AllPosts';
-import OnePost from './pages/OnePost';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import AboutMe from "./pages/AboutMe"
+import AllPosts from "./pages/AllPosts"
+import OnePost from "./pages/OnePost"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
 
+import "./App.css"
 
-import './App.css';
+// https://www.sanity.io/guides/build-your-first-blog-using-react
 
-//https://www.sanity.io/guides/build-your-first-blog-using-react
-
-
-function App() {
-
+function App () {
   return (
     <BrowserRouter>
       <Header />
@@ -23,7 +20,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
