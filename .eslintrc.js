@@ -24,6 +24,8 @@ module.exports = {
     indent: ["error", 2],
     semi: ["error", "never"],
     "max-len": ["error", { code: 80, ignoreStrings: true }],
-    quotes: ["error", "double", { allowTemplateLiterals: true }]
+    quotes: ["error", "double", { allowTemplateLiterals: true }],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"]
   }
 }

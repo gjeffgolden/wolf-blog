@@ -1,84 +1,20 @@
-import { useState, useEffect } from "react"
+import { FC } from "react"
 import { Link } from "react-router-dom"
-import sanityClient from "../client"
 import FeaturedPost from "../components/FeaturedPost"
+import { Post } from "../interfaces"
 
-export interface Post {
-    mainImage: {
-        asset: {
-            _id: string,
-            url: string
-        }
-    },
-    slug: {
-        _type: string,
-        current: string
-    },
-    title: string
-    _createdAt: string
-    categories: { title: string }[]
+interface AllPostsProps {
+  sortedPosts: Post[];
 }
 
-export default function AllPosts () {
-  const [allPostsData, setAllPosts] = useState<Post[]>([])
-
-  useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "post"]{
-                    title,
-                    _createdAt,
-                    slug,
-                    mainImage{
-                        asset->{
-                            _id,
-                            url
-                        }
-                    },
-                    categories[] -> {
-                      title
-              },
-                }
-                `
-      )
-      .then((data) => setAllPosts(data))
-      .catch(console.error)
-  }, [])
-
-  const sortedPosts = [...allPostsData].sort((a: Post, b: Post) =>
-    a._createdAt < b._createdAt ? 1 : -1
-  )
-
+const AllPosts: FC<AllPostsProps> = ({ sortedPosts }) => {
   const featuredPost = sortedPosts[0]
-
-  const newsPosts = allPostsData.filter(
-    post => post?.categories.map(
-      category => category.title
-    ).includes("News")
-  )
-
-  const essayPosts = allPostsData.filter(
-    post => post?.categories.map(
-      category => category.title
-    ).includes("Essays")
-  )
-
-  const fictionPosts = allPostsData.filter(
-    post => post?.categories.map(
-      category => category.title
-    ).includes("Stories")
-  )
-
-  console.log(essayPosts)
-  console.log(newsPosts)
-  console.log(fictionPosts)
-
   return (
-    <div className="bg-gray-100 min-h-screen p-12">
-      <FeaturedPost post={featuredPost} />
+    <main className="bg-gray-100 min-h-screen p-12">
+      <FeaturedPost featuredPost={featuredPost} />
       <div className="container mx-auto">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allPostsData &&
+        <article className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {!!sortedPosts &&
             sortedPosts.map((post: Post, index: number) => (
               <Link to={"/" + post.slug.current} key={post.slug.current}>
                 <span
@@ -102,8 +38,10 @@ export default function AllPosts () {
                 </span>
               </Link>
             ))}
-        </div>
+        </article>
       </div>
-    </div>
+    </main>
   )
 }
+
+export default AllPosts
