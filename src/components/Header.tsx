@@ -18,7 +18,7 @@ const Header = () => {
   const handleCloseModal = () => setAnchorEl(null)
 
   return (
-    <header className="flex flex-row w-full justify-around items-center bg-gray-100">
+    <header className="flex flex-row w-full justify-around items-center bg-green-100">
       <Link to="/">
         <img
           src={WolfHeadLogo}
@@ -27,9 +27,9 @@ const Header = () => {
         />
       </Link>
       <section className="mt-8">
-        <h2 className="text-5xl flex justify-center cursive">Wild Margins</h2>
-        <h3 className="text-lg text-gray-600 flex justify-center mb-12">
-                    Stories and essays by G. Jeff Golden
+        <h2 className="text-5xl flex justify-center paragraph">Wild Margins</h2>
+        <h3 className="text-2xl text-gray-600 cursive flex justify-center mb-12">
+                    Stories and essays
         </h3>
       </section>
       <IconButton className="h-12 w-12 p-6px" onClick={handleClick}>

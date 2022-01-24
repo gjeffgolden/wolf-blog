@@ -10,7 +10,7 @@ interface AllPostsProps {
 const AllPosts: FC<AllPostsProps> = ({ sortedPosts }) => {
   const featuredPost = sortedPosts[0]
   return (
-    <main className="bg-gray-100 min-h-screen p-12">
+    <main className="bg-green-100 min-h-screen p-12">
       <FeaturedPost featuredPost={featuredPost} />
       <div className="container mx-auto">
         <article className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -30,7 +30,7 @@ const AllPosts: FC<AllPostsProps> = ({ sortedPosts }) => {
                     className="block relative h-full flex justify-end items-end pb-4"
                   >
                     <h2
-                      className="text-gray-800 cursive w-full text-lg text-center font-bold px-3 py-4 bg-blue-800 text-red-100 bg-opacity-75 rounded break-word"
+                      className="text-gray-800 header w-full text-lg text-center font-bold px-3 py-4 bg-blue-800 text-red-100 bg-opacity-75 rounded break-word"
                     >
                       {post.title}
                     </h2>

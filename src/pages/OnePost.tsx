@@ -65,37 +65,39 @@ export default function OnePost () {
 
   if (!postData) return <div>Loading...</div>
 
+  const { authorImage, body, mainImage, name, title } = postData
+
   return (
-    <div className="bg-gray-100 min-h-screen p-12">
-      <div className="container shadow-lg mx-auto bg-green-100 rounded-lg">
+    <div className="bg-green-100 min-h-screen p-12">
+      <div className="container shadow-lg mx-auto bg-white rounded-lg">
         <div className="relative">
           <div className="absolute h-full w-full flex items-center justify-center p-8">
             <div className="bg-white bg-opacity-75 rounded p-12">
-              <h2 className="cursive text-3xl lg:text-6xl mb-4">
-                {postData.title}
+              <h2 className="header text-3xl lg:text-6xl mb-4">
+                {title}
               </h2>
               <div className="flex justify-center text-gray-800">
                 <img
                   className="w-10 h-10 rounded-full"
-                  src={`${urlFor(postData.authorImage).width(100).url()}`}
+                  src={`${urlFor(authorImage).width(100).url()}`}
                   alt="Jeff Golden Author"
                 />
                 <h4 className="cursive flex items-center pl-2 text-2xl">
-                  {postData.name}
+                  {name}
                 </h4>
               </div>
             </div>
           </div>
           <img
             className="w-full object-cover rounded-t"
-            src={String(urlFor(postData.mainImage).width(2000).url())}
+            src={String(urlFor(mainImage).width(2000).url())}
             alt="Gray Wolf"
             style={{ height: "400px" }}
           />
         </div>
         <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
           <BlockContent
-            blocks={postData.body}
+            blocks={body}
             projectId={sanityClient.clientConfig.projectId}
             dataset={sanityClient.clientConfig.dataset}
           />

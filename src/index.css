@@ -1,14 +1,33 @@
 @import url("https://unpkg.com/@tailwindcss/typography@0.2.x/dist/typography.min.css");
 @import url("https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Playfair+Display&family=Quicksand&display=swap');
+
+
+.blog-title {
+  font-family: "LibreBaskerville";
+  font-weight: 400;
+}
 
 .cursive {
   font-family: "Amatic SC", cursive;
   font-weight: 700;
 }
 
+.header {
+  font-family: "Playfair Display";
+  font-weight: 400;
+}
+
+.paragraph {
+  font-family: "Quicksand";
+  font-weight: 400;
+}
+
 .prose img {
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
+  font-family: "Quicksand";
+  font-weight: 400;
 }

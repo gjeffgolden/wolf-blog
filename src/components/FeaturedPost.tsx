@@ -23,7 +23,7 @@ const FeaturedPost: FC<FeaturedPostProps> = ({ featuredPost }) => {
               className="block relative h-full flex justify-end items-end pb-4"
             >
               <h2
-                className="text-gray-800 cursive w-full text-center text-6xl font-bold px-3 py-4 bg-green-800 text-red-100 bg-opacity-75 uppercase"
+                className="text-gray-800 header w-full text-center text-6xl px-3 py-4 bg-green-800 text-red-100 bg-opacity-75"
               >
                 {featuredPost.title}
               </h2>
